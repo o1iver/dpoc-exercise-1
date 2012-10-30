@@ -5,16 +5,21 @@ function [ x,y ] = fromNodeIx(T,ix)
 % - x: x position
 % - y: y position
 
-% smallT = T(2:end-1,2:end-1);
-smallT = T;
-heightSmallT = size(smallT,1);
-widthSmallT  = size(smallT,2);
+T = T(2:end-1,2:end-1);
+width = size(T,2);
 
-sY = mod(ix,widthSmallT);
-if sY == 0; sY = widthSmallT; end;
-sX = ((ix-sY)/widthSmallT)+1;
+rest = mod(ix,width);
+div  = (ix-rest)/width;
 
-y = sY+1;
-x = sX+1;
+y = rest;
+x = div+1;
+if rest == 0
+    y = width;
+    x = div;
+end
+
+x = x + 1;
+y = y + 1;
+
 end
 

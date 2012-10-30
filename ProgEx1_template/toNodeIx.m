@@ -6,7 +6,6 @@ function [ ix ] = toNodeIx(T,x,y)
 % - y: y position
 
 smallT = T(2:end-1,2:end-1);
-heightSmallT = size(smallT,1);
 widthSmallT  = size(smallT,2);
 
 sX = x-1;

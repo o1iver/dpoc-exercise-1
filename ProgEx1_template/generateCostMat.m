@@ -1,5 +1,5 @@
 
-function P=generateCostMat(T,b,costFunc)
+function P=generateCostMat(T,b,t,costFunc)
 % P=generateCostMat(T,b)
 % 
 % Function to create the cost matrix P that is required by the algorithms from the terrain matrix T
@@ -43,5 +43,11 @@ function P=generateCostMat(T,b,costFunc)
 % To be adapted.
 [m,n] = size(T);
 totNodes = (m-2)*(n-2); % Since first and last rows/columns are inf ignore them
-P=inf*ones(totNodes);
+P = zeros(totNodes);
+for source=1:totNodes
+    for sink=1:totNodes
+        cost = costFunc(T,b,
+    end
+end
+
 
