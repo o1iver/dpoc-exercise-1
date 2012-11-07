@@ -1,5 +1,5 @@
 
-function P=generateCostMat(T,b,t,costFunc)
+function P=generateCostMat(T,b)
 % P=generateCostMat(T,b)
 % 
 % Function to create the cost matrix P that is required by the algorithms from the terrain matrix T
@@ -46,8 +46,11 @@ totNodes = (m-2)*(n-2); % Since first and last rows/columns are inf ignore them
 P = zeros(totNodes);
 for source=1:totNodes
     for sink=1:totNodes
-        cost = costFunc(T,b,
+        cost = costFunc(T,b,source,sink);
+        fprintf('Cost from state %u to state %u is: %f\n',source,sink,cost);
+    	P(source,sink) = cost;
     end
 end
 
 
+	
